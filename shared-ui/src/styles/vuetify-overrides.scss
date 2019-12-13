@@ -1,0 +1,136 @@
+// This file will be hoisted to the top of the scss source file whenever any vss variant file is
+// processed by webpack. Use it to override Vuetify variables.
+
+$body-font-family: 'proxima-nova', sans-serif;
+$shadow-key-umbra-opacity: rgba(0, 0, 0, 0.05);
+$shadow-key-penumbra-opacity: rgba(0, 0, 0, 0.035);
+$shadow-key-ambient-opacity: rgba(0, 0, 0, 0.03);
+
+@import '~vuetify/src/styles/styles.sass';
+
+// Override light theme variables
+$material-light: map-merge(
+  $material-light,
+  (
+    'background': map-get($grey, 'lighten-4'),
+    'card': map-get($shades, 'white'),
+    'app-bar': map-get($shades, 'white'),
+    'text-color': map-get($grey, 'darken-3'),
+    'text':
+      map-merge(
+        map-get($material-light, 'text'),
+        (
+          'theme': map-get($grey, 'darken-3'),
+          'primary': map-get($grey, 'darken-3'),
+          'secondary': map-get($grey, 'darken-3'),
+          'disabled': map-get($grey, 'base'),
+          'link': map-get($grey, 'darken-3'),
+        )
+      ),
+  )
+);
+
+// Override dark theme variables
+$material-dark: map-merge(
+  $material-dark,
+  (
+    'background': map-get($grey, 'darken-4'),
+    'card': map-get($grey, 'darken-3'),
+    'app-bar': map-get($grey, 'darken-3'),
+    'text-color': map-get($shades, 'white'),
+    'text':
+      map-merge(
+        map-get($material-dark, 'text'),
+        (
+          'theme': map-get($shades, 'white'),
+          'primary': map-get($shades, 'white'),
+          'secondary': map-get($shades, 'white'),
+          'disabled': map-get($grey, 'base'),
+          'link': map-get($shades, 'white'),
+        )
+      ),
+  )
+);
+
+// Override typography variables
+// Vuetify uses these variables internally to calculate
+// - The .display-4 class from h1 styles
+// - The .display-3 class from h2 styles
+// - The .display-2 class from h3 styles
+// - The .display-1 class from h4 styles
+// - The .title class from h6 styles
+$headings: map-merge(
+  $headings,
+  (
+    'h1':
+      map-merge(
+        map-get($headings, 'h1'),
+        (
+          'size': 2rem,
+          'weight': map-get($font-weights, 'light'),
+          'line-height': 2.25rem,
+          'letter-spacing': normal,
+        )
+      ),
+    'h2':
+      map-merge(
+        map-get($headings, 'h2'),
+        (
+          'size': 1.75rem,
+          'weight': map-get($font-weights, 'light'),
+          'line-height': 2rem,
+          'letter-spacing': normal,
+        )
+      ),
+    'h3':
+      map-merge(
+        map-get($headings, 'h3'),
+        (
+          'size': 1.5rem,
+          'weight': map-get($font-weights, 'light'),
+          'line-height': 1.75rem,
+          'letter-spacing': normal,
+        )
+      ),
+    'h4':
+      map-merge(
+        map-get($headings, 'h4'),
+        (
+          'size': 1.25rem,
+          'weight': map-get($font-weights, 'regular'),
+          'line-height': 1.5rem,
+          'letter-spacing': normal,
+        )
+      ),
+    'h6':
+      map-merge(
+        map-get($headings, 'h6'),
+        (
+          'size': 1rem,
+          'weight': map-get($font-weights, 'bold'),
+          'line-height': 1.25rem,
+          'letter-spacing': normal,
+        )
+      ),
+    'body-1':
+      map-merge(
+        map-get($headings, 'body-1'),
+        (
+          'size': 0.875rem,
+          'weight': map-get($font-weights, 'regular'),
+          'line-height': 1.125rem,
+          'letter-spacing': normal,
+        )
+      ),
+    'body-2':
+      map-merge(
+        map-get($headings, 'body-2'),
+        (
+          'size': 0.875rem,
+          'weight': map-get($font-weights, 'bold'),
+          'line-height': 1.125rem,
+          'letter-spacing': normal,
+        )
+      ),
+  )
+);

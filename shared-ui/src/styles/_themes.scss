@@ -1,0 +1,81 @@
+// Given we are overriding vuetify, I think it makes sense to use their exact selectors to override
+/* stylelint-disable selector-max-compound-selectors  */
+
+@import '~vuetify/src/styles/styles.sass';
+@import './colors';
+
+h3{
+  color:red;
+}
+
+.v-text-field.v-text-field--solo.v-text-field--solo-flat {
+  .v-input__slot {
+    border-radius: 2px;
+  }
+
+  &.theme--dark .v-input__slot {
+    background-color: map-get($grey, 'darken-3');
+    border: 1px solid map-get($grey, 'darken-2');
+  }
+
+  &.theme--light .v-input__slot {
+    background-color: map-get($shades, 'white');
+    border: 1px solid map-get($grey, 'darken-2');
+  }
+}
+
+.v-navigation-drawer {
+  .v-label,
+  .v-icon,
+  .v-list-item,
+  .v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
+    $navigation-color: map-get($grey, 'lighten-4');
+    color: $navigation-color !important;
+  }
+
+  .v-list-item{
+    .v-list-item__title{
+      text-align: left;
+    }
+  }
+
+  &.theme--dark {
+    background-color: map-get($grey, 'darken-3');
+  }
+
+  &.theme--light {
+    background-color: $loopup-blue;
+  }
+}
+
+.v-btn:not(.v-btn--icon):not(.v-btn--flat) {
+  &.theme--dark.primary,
+  &.theme--dark.secondary {
+    color: map-get($grey, 'darken-4');
+  }
+  &.theme--light.primary,
+  &.theme--light.secondary {
+    color: map-get($shades, 'white');
+  }
+}
+
+.theme--dark tbody tr:nth-of-type(odd) {
+  background-color: map-get($grey, 'darken-2');
+}
+
+.theme--light tbody tr:nth-of-type(odd) {
+  background-color: map-get($grey, 'lighten-4');
+}
+
+.v-data-table .v-data-table-header th {
+  padding: 1rem;
+}
+
+.theme--dark.v-data-table thead tr th {
+  color: map-get($shades, 'white');
+}
+
+.theme--light.v-data-table thead tr th {
+  color: map-get($shades, 'black');
+}
+/* stylelint-enable */

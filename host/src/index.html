@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>CS Portal</title>
+    <link rel="stylesheet" href="https://loopupicons.azureedge.net/icon-font-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  </head>
+  <body>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@portal/config": "http://host.jk.loopup.com:8233/config.js",
+          "@portal/shared-ui": "http://host.jk.loopup.com:8080/app.js",
+          "@portal/otherMicroApp": "http://host.jk.loopup.com:8081/app.js",
+          "@portal/artemis": "http://host.jk.loopup.com:8082/app.js",
+          "@portal/iframe": "http://host.jk.loopup.com:8239/iframe-loader.js",
+          "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js",
+          "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js",
+          "single-spa": "https://unpkg.com/single-spa@4.3.2/lib/umd/single-spa.min.js"
+        }
+      }
+    </script>
+    <script src='https://unpkg.com/systemjs@4.1.0/dist/system.js'></script>
+    <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/amd.js'></script>
+    <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/named-exports.js'></script>
+    <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/use-default.js'></script>
+
+    <script>
+      (function() {
+        Promise.all([ System.import('vue'), System.import('vue-router')]).then(function (modules) {
+          var Vue = modules[0];
+          var VueRouter = modules[1];
+          
+          Vue.use(VueRouter);
+        });
+      })()
+    </script>
+    
+
+    <!-- Load the common deps-->
+    <script src="http://host.jk.loopup.com:8234/common-deps.js"></script>
+
+    <!-- Load the application -->
+    <script>
+      System.import('@portal/config')
+    </script>
+    
+    <!-- Static navbar -->
+    <link rel="stylesheet" href="http://host.jk.loopup.com:8233/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </body>
+</html>

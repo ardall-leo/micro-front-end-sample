@@ -1,0 +1,14 @@
+// Primary Colors
+$primary-color: #76b246;
+$secondary-color: #ff9600;
+$accent-color-light: #2e99ce;
+$accent-color-dark: #90277d;
+$loopup-blue: #215fb2;
+
+// Exported variables for use in Typescript
+:export {
+  #{'accentColorDark'}: $accent-color-dark;
+  #{'accentColorLight'}: $accent-color-light;
+  #{'primaryColor'}: $primary-color;
+  #{'secondaryColor'}: $secondary-color;
+}

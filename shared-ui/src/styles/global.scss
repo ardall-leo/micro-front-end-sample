@@ -1,0 +1,36 @@
+@import './themes';
+@import './flags-16-sprite-map';
+@import './flags-24-sprite-map';
+
+@mixin font-override($size, $weight) {
+  font-size: $size !important;
+  font-weight: $weight !important;
+  letter-spacing: normal !important;
+  line-height: $size + 0.25rem !important;
+}
+
+// Update Vuetify default to match large button height
+.v-text-field.v-text-field--solo .v-input__control {
+  min-height: 36px !important;
+}
+
+.v-label.v-label--active {
+  @include font-override(1.125rem, map-get($font-weights, 'bold'));
+}
+
+.v-btn {
+  text-transform: none;
+}
+
+.v-data-table {
+  box-shadow: 0 3px 6px #00000029;
+}
+
+// Custom typography classes
+.display-5 {
+  @include font-override(3rem, map-get($font-weights, 'light'));
+}
+
+.subheading {
+  @include font-override(1rem, map-get($font-weights, 'light'));
+}
